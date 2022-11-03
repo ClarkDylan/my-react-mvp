@@ -19,7 +19,7 @@ app.listen(PORT, () => {
 });
 
 
-app.get('/expenses', (req, res) => {
+app.get('/', (req, res) => {
   client.query("SELECT * FROM expenses")
     .then(result => {
       res.status(200).send(result.rows)
