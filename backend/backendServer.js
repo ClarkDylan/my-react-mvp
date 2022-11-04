@@ -25,3 +25,21 @@ app.get('/', (req, res) => {
       res.status(200).send(result.rows)
     })
 });
+
+app.delete('/:id', (req, res) => {
+  let id = req.params.id;
+  client.query("DELETE FROM expenses WHERE id=$1", [id], (error, result) => {
+    if (error) {
+      console.log(error);
+    } else if (result.rowCount === 0) {
+      res.status(404).send('Expense not found');
+    }
+    res.status(201).send('Expense was removed successfully')
+  });
+});
+
+app.post('/add_bill', (req, res) => {
+  const { expense_name, expense_price } = req.body;
+  client.query('INSERT INTO expenses(expense_name, expense_price) VALUES($1, $2);', [req.body.expense_name, req.body.expense_price])
+  res.status(201).send('Created new bill: ' + req.body.expense_name)
+})
