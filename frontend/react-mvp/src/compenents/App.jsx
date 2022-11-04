@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import AddButton from './AddButton'
 import Balance from './Balance'
 import Container from './Container'
 import Expenses from './Expenses'
 import Remaining from './Remaining'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -23,6 +25,7 @@ const App = () => {
     <>
       <Container />
       <Balance />
+      <AddButton />
       {expense.map(bill => <Expenses key={bill.id} bill={bill} />)}
       <Remaining />
     </>
