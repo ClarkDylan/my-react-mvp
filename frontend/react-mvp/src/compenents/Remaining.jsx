@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Remaining = () => {
+const Remaining = (props) => {
   return (
     <div>
-      Remaining balance here
+      <p>Remaining in Account:</p>
+      <p className='remaining'>${props.bal}</p>
     </div>
   )
 }

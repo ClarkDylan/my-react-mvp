@@ -4,7 +4,7 @@ const Container = () => {
   return (
     <div className="container">
       <p>
-        This is where the container will go.
+        This is the container everything will be in
       </p>
     </div>
   );

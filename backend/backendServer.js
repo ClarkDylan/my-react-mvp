@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
     })
 });
 
+// delete by id
 app.delete('/:id', (req, res) => {
   let id = req.params.id;
   client.query("DELETE FROM expenses WHERE id=$1", [id], (error, result) => {
@@ -40,6 +41,8 @@ app.delete('/:id', (req, res) => {
 
 app.post('/add_bill', (req, res) => {
   const { expense_name, expense_price } = req.body;
-  client.query('INSERT INTO expenses(expense_name, expense_price) VALUES($1, $2);', [req.body.expense_name, req.body.expense_price])
-  res.status(201).send('Created new bill: ' + req.body.expense_name)
+  client.query('INSERT INTO expenses(expense_name, expense_price) VALUES($1, $2) RETURNING *;', [req.body.expense_name, req.body.expense_price])
+    .then(result => {
+      res.status(201).send(result.rows)
+    })
 })

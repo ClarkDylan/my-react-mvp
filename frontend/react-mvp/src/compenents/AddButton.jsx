@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { GoDiffAdded } from 'react-icons/go';
 
-const AddButton = () => {
+const AddButton = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -10,14 +10,15 @@ const AddButton = () => {
   const [price, setPrice] = useState(0);
 
   const addNewBill = (event) => {
-    let text = event.target.value;
-    setBill(text);
+    let name = event.target.value;
+    setBill(name);
   };
 
   const addNewPrice = (event) => {
     let price = event.target.value;
     setPrice(price);
   };
+
 
   return (
     <>
@@ -29,7 +30,9 @@ const AddButton = () => {
         </Modal.Header>
         <Modal.Body>
           <input type='text' className='newInput' id='inputName' placeholder='Expense name' onKeyUp={addNewBill}></input>
+
           <input type='number' className='newInput' id='inputPrice' placeholder='Expense price' onKeyUp={addNewPrice}></input>
+
           <button className='addButton' onClick={() => {
             fetch('http://localhost:9003/add_bill', {
               method: "POST",
@@ -42,7 +45,13 @@ const AddButton = () => {
                 expense_price: price
               })
             })
-              .then(console.log('Added'))
+              .then(res => res.json())
+              .then((result) => {
+                props.setExpense(bills => {
+                  return [...bills, result[0]]
+                })
+              })
+              .then(props.setBal(props.total - price))
               .then(handleClose)
           }}>
             <GoDiffAdded />
