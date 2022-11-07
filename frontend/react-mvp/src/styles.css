@@ -50,6 +50,7 @@ body {
   align-content: stretch;
   flex-wrap: nowrap;
   flex-direction: column;
+  text-align: center;
 }
 
 .balButton {
@@ -112,4 +113,15 @@ body {
 .bill {
   text-decoration: underline #04E762;
   border-radius: 25px;
+}
+
+.howTo {
+  font-size: 14px;
+  color: grey;
+}
+
+.howTo:hover {
+  font-size: 14px;
+  color: #04E762;
+  cursor: pointer;
 }

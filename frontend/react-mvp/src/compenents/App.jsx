@@ -6,6 +6,7 @@ import Remaining from './Remaining'
 import BalanceInput from './BalanceInput'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import wallet from './wallet.png'
+import HowTo from './HowTo'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
       <AddButton setExpense={setExpense} setBal={setBal} updateRemaining={updateRemaining} bal={bal} total={total} />
       {expense.map(bill => <Expenses key={bill.id} bill={bill} setExpense={setExpense} setBal={setBal} bal={bal} />)}
       <Remaining remaining={remaining} updateRemaining={updateRemaining} bal={bal} total={total} />
+      <HowTo />
     </div>
   )
 }
