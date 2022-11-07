@@ -5,6 +5,7 @@ const BalanceInput = (props) => {
   const updateBalance = (event) => {
     let amount = event.target.value;
     props.setTotal(amount)
+    props.setBal(amount)
   }
 
   return (

@@ -51,7 +51,7 @@ const AddButton = (props) => {
                   return [...bills, result[0]]
                 })
               })
-              .then(props.setBal(props.total - price))
+              .then(props.setBal(props.bal - price))
               .then(handleClose)
           }}>
             <GoDiffAdded />

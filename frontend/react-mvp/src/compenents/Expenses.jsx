@@ -12,6 +12,7 @@ const Expenses = (props) => {
               return bills.filter((bill) => props.bill.expense_name !== bill.expense_name)
             })
           })
+          .then(props.setBal(props.bal + props.bill.expense_price))
       }} /></div>
     </>
   )

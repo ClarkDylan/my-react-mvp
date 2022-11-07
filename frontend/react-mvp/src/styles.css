@@ -84,6 +84,10 @@ body {
 
 .logo {
   width: 55px;
+  filter: saturate(3);
+  -webkit-filter: saturate(3);
+  filter: contrast(160%);
+  -webkit-filter: contrast(222%);
 }
 
 .container {
