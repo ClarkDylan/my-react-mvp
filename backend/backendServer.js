@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 });
 
 // delete by id
-app.delete('/:id', (req, res) => {
+app.delete('/delete/:id', (req, res) => {
   let id = req.params.id;
   client.query("DELETE FROM expenses WHERE id=$1", [id], (error, result) => {
     if (error) {
@@ -37,6 +37,13 @@ app.delete('/:id', (req, res) => {
     }
     res.status(201).send('Expense was removed successfully')
   });
+});
+
+app.delete('/removeAll', (req, res) => {
+  client.query("DELETE FROM expenses")
+    .then(result => {
+      res.status(201).send('Removed all rows from table')
+    })
 });
 
 app.post('/add_bill', (req, res) => {

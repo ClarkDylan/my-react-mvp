@@ -125,3 +125,12 @@ body {
   color: #04E762;
   cursor: pointer;
 }
+
+.reset {
+  font-size: 30px;
+}
+
+.reset:hover {
+  color: red;
+  cursor: pointer;
+}
