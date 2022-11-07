@@ -26,13 +26,6 @@ const App = () => {
       )
   }, []);
 
-
-  const displayBalance = (value) => {
-    setBal(value);
-    setTotal(value);
-  }
-
-
   const updateRemaining = (value) => {
     setRemaining(value)
   }
