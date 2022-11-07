@@ -16,7 +16,7 @@ const HowTo = () => {
           <Modal.Title>How To Steps</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>1. Input your starting account balance.</p>
+          <p>1. Input your starting account balance, and press enter.</p>
           <p>2. Click the <GoDiffAdded /> button to add a bill/expense.</p>
           <p>3. Check your remaining balance to see if you can afford this budget plan.</p>
           <p>4. If you need to delete something, click the <AiOutlineCloseCircle /> button. Balance will reflect.</p>
